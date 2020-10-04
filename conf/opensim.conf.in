@@ -1,0 +1,24 @@
+
+# set SIM_LSN to the HTTP port OpenSim will use
+export SIM_LSN=9000
+# this should be the public hostname of the machine
+# a public IP address can be set here, but it's more reliable
+# to use a domain name matching your public IP address
+# if left empty, the public IP address will be used
+export SIM_HOST=''
+
+# Nickname of the grid (default to Local if empty)
+export GRID_NAME=''
+# Use HTTP or HTTPS for grid services
+export GRID_SCHEME=http
+# Grid domain name (if connecting to an existing grid)
+export GRID_HOST=''
+# Grid public port (if left empty, uses simulator listener port)
+export GRID_PUBLIC=
+# Grid private port
+export GRID_PRIVATE=8003
+
+# add shell commands and environment variables here
+export MONO_THREADS_PER_CPU=120
+ulimit -s 1048576
+

@@ -1,0 +1,120 @@
+
+[Startup]
+  WorldMapModule = HGWorldMap
+
+[Hypergrid]
+  HomeURI = ${Const|PUBLICURL}
+  GatekeeperURI = ${Const|PUBLICURL}
+
+[Modules]
+  AssetServices = HGAssetBroker
+  InventoryServices = HGInventoryBroker
+  GridServices = RemoteGridServicesConnector
+  AvatarServices = RemoteAvatarServicesConnector
+  NeighbourServices = NeighbourServicesOutConnector
+  AuthenticationServices = RemoteAuthenticationServicesConnector
+  AuthorizationServices = LocalAuthorizationServicesConnector
+  PresenceServices = RemotePresenceServicesConnector
+  UserAccountServices = RemoteUserAccountServicesConnector
+  AgentPreferencesServices = RemoteAgentPreferencesServicesConnector
+  GridUserServices = RemoteGridUserServicesConnector
+  SimulationServices = RemoteSimulationConnectorModule
+  EntityTransferModule = HGEntityTransferModule
+  InventoryAccessModule = HGInventoryAccessModule
+  LandServices = RemoteLandServicesConnector
+  FriendsModule = HGFriendsModule
+  MapImageService = MapImageServiceModule
+  UserManagementModule = HGUserManagementModule
+  SeachModule = BasicSearchModule
+  MuteListService = RemoteMuteListServicesConnector
+
+  LandServiceConnector = True
+  LandServiceInConnector = true
+  NeighbourServiceInConnector = true
+  SimulationServiceInConnector = true
+  LibraryModule = true
+
+[DataSnapshot]
+  ;index_sims = true
+  data_exposure = minimum
+  gridname = ${Environment|GRID_NAME}
+  default_snapshot_period = 36000
+  snapshot_cache_directory = ${Const|RT}/DataSnapshot
+
+[Friends]
+  Connector = OpenSim.Services.Connectors.dll:FriendsServicesConnector
+
+[Groups]
+  Enabled = true
+  ;StorageProvider = OpenSim.Data.MySQL.dll
+  LocalService = remote
+  MessageOnlineUsersOnly = true
+  ServicesConnectorModule = Groups HG Service Connector
+  MessagingModule = Groups Messaging Module V2
+  GroupsServerURI = ${Const|PRIVATEURL}
+  HomeURI = ${Const|PUBLICURL}
+
+[Messaging]
+  InstantMessageModule = InstantMessageModule
+  MessageTransferModule = HGMessageTransferModule
+  LureModule = HGLureModule
+  OfflineMessageModule = Offline Message Module V2
+  OfflineMessageURL = ${Const|PRIVATEURL}
+
+[GridInfo]
+  GridInfoURI = ${Const|PUBLICURL}
+
+[UserProfiles]
+  ProfileServiceURL = ${Const|PUBLICURL}
+
+[AssetService]
+  LocalGridAssetService = OpenSim.Services.Connectors.dll:AssetServicesConnector
+  HypergridAssetService = OpenSim.Services.Connectors.dll:HGAssetServiceConnector
+  AssetServerURI = ${Const|PRIVATEURL}
+[GridService]
+  StorageProvider = OpenSim.Data.Null.dll:NullRegionData
+  LocalServiceModule = OpenSim.Services.GridService.dll:GridService
+  NetworkConnector = OpenSim.Services.Connectors.dll:GridServicesConnector
+  AssetService = OpenSim.Services.Connectors.dll:AssetServicesConnector
+  HypergridLinker = true
+  AllowHypergridMapSearch = true
+  SuppressConsoleCommands = true
+  MapTileDirectory = "${Const|RT}/gridmap"
+  GridServerURI = "${Const|PRIVATEURL}"
+  GateKeeper = "${Const|PUBLICURL}"
+[LibraryService]
+  LocalServiceModule = OpenSim.Services.InventoryService.dll:LibraryService
+  LibraryName = "OpenSim Library"
+  DefaultLibrary = "./inventory/Libraries.xml"
+[EstateService]
+  EstateServerURI = ${Const|PRIVATEURL}
+[AvatarService]
+  AvatarServerURI = ${Const|PRIVATEURL}
+[AgentPreferencesService]
+  AgentPreferencesServerURI = ${Const|PRIVATEURL}
+[PresenceService]
+  PresenceServerURI = ${Const|PRIVATEURL}
+[UserAccountService]
+  UserAccountServerURI = ${Const|PRIVATEURL}
+[GridUserService]
+  GridUserServerURI = ${Const|PRIVATEURL}
+[AuthenticationService]
+  AuthenticationServerURI = ${Const|PRIVATEURL}
+[FriendsService]
+  FriendsServerURI = ${Const|PRIVATEURL}
+[InventoryService]
+  LocalGridInventoryService = OpenSim.Region.CoreModules.dll:RemoteXInventoryServicesConnector
+  InventoryServerURI = ${Const|PRIVATEURL}
+[UserAgentService]
+  UserAgentServerURI = ${Const|PUBLICURL}
+[HGInventoryAccessModule]
+  HomeURI = ${Const|PUBLICURL}
+  Gatekeeper = ${Const|PUBLICURL}
+[HGAssetService]
+  HomeURI = ${Const|PUBLICURL}
+[HGInstantMessageService]
+  LocalServiceModule = OpenSim.Services.HypergridService.dll:HGInstantMessageService
+  GridService = OpenSim.Services.Connectors.dll:GridServicesConnector
+  PresenceService = OpenSim.Services.Connectors.dll:PresenceServicesConnector
+  UserAgentService = OpenSim.Services.Connectors.dll:UserAgentServiceConnector
+
