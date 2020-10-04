@@ -1,4 +1,9 @@
 
+# set STANDALONE to true if you want to run in standalone mode
+# This will read the conf/provided/OpenSimStandalone.ini file
+# instead of conf/provided/OpenSimGrid.ini
+export STANDALONE=false
+
 # set SIM_LSN to the HTTP port OpenSim will use
 export SIM_LSN=9000
 # this should be the public hostname of the machine

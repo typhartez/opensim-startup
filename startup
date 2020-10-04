@@ -53,6 +53,11 @@ test x"$GRID_PUBLIC" = x && GRID_PUBLIC=$SIM_LSN
 test x"$GRID_NAME" = x && GRID_NAME=Local
 
 echo "Simulator settings:"
+if [ $STANDALONE = true ]; then
+  echo "- Mode: STANDALONE"
+else
+  echo "- Mode: GRID"
+fi
 echo "- Public address: $SIM_ADDR"
 echo "- Public hostname: $SIM_HOST"
 echo "- HTTP Listener: $SIM_LSN"
@@ -101,10 +106,13 @@ create_dir "$CONFDIR/modules"
 OLDTERM=$TERM
 TERM=xterm
 
+startup_file=OpenSimGrid.ini
+test $STANDALONE = true && startup_file=OpenSimStandalone.ini
+
 echo "Start OpenSim"
 env LANG=C mono OpenSim.exe \
   -logconfig="$CONFDIR/OpenSim.exe.config" \
-  -inifile="$CONFDIR/provided/OpenSim.ini"
+  -inifile="$CONFDIR/provided/$startup_file"
 
 TERM=$OLDTERM
 reset
